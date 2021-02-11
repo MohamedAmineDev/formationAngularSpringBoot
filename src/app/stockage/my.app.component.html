@@ -1,0 +1,19 @@
+<h1>{{nom| lowercase}}</h1>
+<input [(ngModel)]="nom" id="t" />
+<button class="btn btn-success" (click)="findT()">Ajouter</button>
+<button class="btn btn-warning" (click)=" findById()">Ajouter</button>
+<p>
+  {{a+b}}
+</p>
+<button (click)="modeAffichage()">{{verbe}}</button>
+  <ul [hidden]="mode">
+    <li *ngFor="let item of apps;let i=index">
+     <!--{{i}} ||| {{item|json}} <button (click)="hey(i)" >show index</button>
+     <button (click)="delete(i)">supprimer</button>
+     !-->
+     id: {{item.id}}<br>
+     nom: {{item.name}}<br>
+     statut: {{item.status}}
+    </li>
+    <br/>
+  </ul>

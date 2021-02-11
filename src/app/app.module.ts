@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
+import { crudService } from './services/crudService';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,9 @@ import { FormsModule } from "@angular/forms";
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    crudService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
