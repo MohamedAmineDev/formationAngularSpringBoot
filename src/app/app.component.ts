@@ -43,4 +43,8 @@ export class AppComponent {
     this.noms.splice(id,1);
     //this.noms.pop(id);
   }
+
+  updateT(){
+    console.log("Update table !");
+  }
 }
