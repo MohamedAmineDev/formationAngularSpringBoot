@@ -9,5 +9,6 @@
   <ul>
     <li *ngFor="let item of noms;let i=index">
      {{i}} ||| {{item}} <button (click)="hey(i)" >show index</button>
+     <button (click)="delete(i)">supprimer</button>
     </li>
   </ul>

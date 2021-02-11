@@ -40,7 +40,7 @@ export class AppComponent {
     console.log(this.noms[id]);
   }
   delete(id:number){
-    let name=this.noms[id];
+    this.noms.splice(id,1);
     //this.noms.pop(id);
   }
 }
