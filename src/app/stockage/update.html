@@ -1,0 +1,21 @@
+<div>
+  <form  class="form-group" >
+    <label>id</label>
+    <input type="text" [(ngModel)]="appareil.id" name="appareil.id" class="form-control" required="true"/>
+
+    <label>name</label>
+    <input type="text" [(ngModel)]="appareil.name" name="appareil.name" class="form-control" [ngStyle]="{color:getColor()}" required="true" />
+    <label>statut</label>
+    <input type="text" [(ngModel)]="appareil.status" name="appareil.status" class="form-control" required="true" [ngClass]="{'myClass':put==false}" />
+    <button class="btn btn-success" (click)="updating()" [disabled]="">update une Appareil</button>
+    </form>
+</div>
+<div class="container" *ngIf="toSearch" >
+  <form >
+
+    <label></label>
+    <input type="text" [(ngModel)]="trouver" name="trouver" />
+    <button class="btn btn-warning" (click)="find()">chercher</button>
+  </form>
+</div>
+
