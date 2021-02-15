@@ -1,0 +1,13 @@
+<h1>users works!</h1>
+<div *ngFor="let personne of personnes;let i=index">
+  <p>id: {{personne.id}} <br />
+    nom: {{personne.nom}}
+
+  </p>
+
+  <button (click)="details(personne.id)">show</button>
+
+  <button (click)="delete(personne)">delete</button>
+
+  <button (click)="update(personne.id)">update</button>
+</div>

@@ -1,0 +1,16 @@
+<form #f="ngForm" (ngSubmit)="ajouter(f)">
+
+  <label for="id">id</label>
+  <input type="text" name="id" ngModel required minlength="0" pattern="[1..9]*"  >
+  <div *ngIf=""></div>
+<br/>
+  <label for="nom">nom</label>
+  <input type="text" name="nom" ngModel required minlength="6">
+  <div *ngIf=""></div>
+  <button type="submit">ajouter</button>
+</form>
+
+{{f.controls.id?.errors|json}}
+/////<br/>
+{{f.controls.nom?.errors|json}}
+
