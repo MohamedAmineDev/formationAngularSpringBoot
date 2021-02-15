@@ -1,0 +1,40 @@
+<button (click)="switchTo()" >Afficher la liste des Appareils</button>
+<button (click)="navigateTo()">Ajouter une Appareil</button>
+<!--<button (click)="search()" >Rechercher</button>!-->
+
+<br/> <br/>
+<div *ngIf="modeAf=='true'">
+  <table class="table">
+    <tr>
+      <th> id</th>
+      <th>nom</th>
+      <th>statut</th>
+      <th>action</th>
+    </tr>
+  <tr *ngFor="let item of apps;let i=index;">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.status}}</td>
+    <td><button (click)="beforeUpdate(item,i)" >update</button></td>
+  </tr>
+  </table>
+</div>
+<div *ngIf="modeAf=='false'" class="container">
+<form  class="form-group"  >
+<label>id</label>
+<input type="text" [(ngModel)]="id" name="id" class="form-control" required="true"/>
+
+<label>name</label>
+<input type="text" [(ngModel)]="name" name="name" class="form-control" [ngStyle]="{color:getColor()}" required="true" />
+<label>statut</label>
+<input type="text" [(ngModel)]="statut" name="statut" class="form-control" required="true" [ngClass]="{'myClass':put==false}" />
+<button class="btn btn-success" (click)="ajouter()" [disabled]="controler()">ajouter une Appareil</button>
+
+</form>
+<p>
+  {{id|json}}
+  {{name|json}}
+  {{statut|json}}
+</p>
+</div>
+
