@@ -23,30 +23,31 @@
   <button class="btn btn-warning" type="submit"  >Ajouter</button>
 </form>
 -->
-<form #f="ngForm" class="form-group" (ngSubmit)="ajouter(f)" >
+<form #f="ngForm" class="form-group" (ngSubmit)="ajouter(f)">
   <label>cin</label>
-  <input type="number" name="cin" ngModel required class="form-control"  />
-<div *ngIf="f.value.cin<1&&f.dirty&&f.submitted" class="c">
-  cin ne doit pas être null !
-</div>
+  <input type="number" name="cin" ngModel required class="form-control" ngClass="{'ts':f.controls.cin?.errors&&f.submitted}"  />
+
   <label>nom</label>
   <input type="text" name="nom" ngModel required class="form-control" />
   <div *ngIf="f.value.nom?.length>4&&f.dirty&&f.submitted" class="c">
-   le nom doit être composé au moins de 4 chiffres !
+    le nom doit être composé au moins de 4 chiffres !
   </div>
   <label>age</label>
   <input type="number" name="age" ngModel required class="form-control" />
-  <input type="text" name="nom" ngModel required class="form-control" />
+
   <div *ngIf="f.value.age<=0&&f.dirty&&f.submitted" class="c">
-   le age doit être supérieur à zéro !
+    le age doit être supérieur à zéro !
+  </div>
+  <div *ngIf="f.controls.nom?.errors">
+    le age doit être supérieur à zéro !
   </div>
   <label>date de naissance</label>
-  <input type="date" name="date" ngModel required class="form-control"  />
-  <input type="text" name="nom" ngModel required class="form-control" />
+  <input type="date" name="date" ngModel required class="form-control" />
   <div *ngIf="!f.value.date&&f.dirty&&f.submitted" class="c">
-   le date ne doit pas être vide  !
+    le date ne doit pas être vide !
   </div>
   <button type="submit">ajouter</button>
+  <button type="reset" (click)="f.reset()">clear</button>
 </form>
 {{f.value|json}}
-
+{{ f.controls.cin?.status}}

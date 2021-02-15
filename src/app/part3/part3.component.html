@@ -1,0 +1,19 @@
+<form #f="ngForm" class="form-group" (ngSubmit)="ajouter(f)">
+
+  <label for="nom">nom</label>
+  <input  type="text" name="nom"   ngModel required  minlength="6" [ngClass]="{'C' : f.submitted && f.controls.nom?.status == 'INVALID'}"  />
+
+  <div *ngIf="f.controls.nom?.status == 'INVALID'" class="ts">
+    <div *ngIf="f.submitted && f.controls.nom.errors?.required">
+      <p> Champs obligatoire !</p>
+    </div>
+    <div *ngIf="f.submitted && f.controls.nom.errors?.minlength">
+      <p> Champs nom doit comporter au moins 6 lettres !</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">ajouter</button>
+</form>
+{{ f.value | json }}
+{{ f.controls.nom?.status}}
+{{ f.controls.nom?.errors?.required | json}}
+{{ f.controls.nom?.errors?.minlength | json}}

@@ -16,4 +16,10 @@ ajouter(f:NgForm){
 
 console.log(f)
 }
+clear(f:NgForm){
+f.value.cin=0;
+f.value.nom=0;
+f.value.age=0;
+}
+
 }
