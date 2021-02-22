@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Personne } from '../model/personne';
 import { PersonneService } from '../personne.service';
 
@@ -10,7 +11,7 @@ import { PersonneService } from '../personne.service';
 })
 export class AjoutEtudiantComponent implements OnInit {
 
-  constructor(private service:PersonneService) { }
+  constructor(private service:PersonneService,private router:Router) { }
 
   ngOnInit(): void {
   }

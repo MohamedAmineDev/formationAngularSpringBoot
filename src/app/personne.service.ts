@@ -33,5 +33,6 @@ export class PersonneService {
   getPersonne(id:number):Personne{
     return this.personnes.find(x=>x.id=id);
   }
+
   constructor() { }
 }
