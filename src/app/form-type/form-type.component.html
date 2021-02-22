@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Nom</th>
+  </thead>
+  <tbody *ngFor="let appareil of appareils;let i=index">
+    <tr (click)=update(i,appareil)>
+      <td appColor>{{appareil.id}}</td>
+      <td>{{appareil.name}}</td>
+      <td>{{appareil.status}}</td>
+      <td>
+        <button (click)="delete(i)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="modifiable">
+  <form>
+    <label>id</label>
+    <input name="id" [(ngModel)]="appareil.id" />
+    <label>name</label>
+    <input name="name" [(ngModel)]="appareil.name" />
+    <label>status</label>
+    <input name="status" [(ngModel)]="appareil.status" />
+    <button (click)="doUpdate()" [disabled]="appareil.id==0||appareil.name==''||appareil.status==''" >update</button>
+    {{appareil|json}}
+  </form>
+</div>
